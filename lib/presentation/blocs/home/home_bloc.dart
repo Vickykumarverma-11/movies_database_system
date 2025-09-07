@@ -8,12 +8,8 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   final GetTrendingMovies getTrending;
   final GetNowPlayingMovies getNowPlaying;
 
-  HomeBloc({
-    required this.getTrending,
-    required this.getNowPlaying,
-    required Object getTrendingMovies,
-    required Object getNowPlayingMovies,
-  }) : super(const HomeState()) {
+  HomeBloc({required this.getTrending, required this.getNowPlaying})
+    : super(const HomeState()) {
     on<LoadHome>((event, emit) async {
       emit(state.copyWith(loading: true, error: null));
       try {

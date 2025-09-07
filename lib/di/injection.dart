@@ -27,7 +27,7 @@ Future<void> init() async {
   sl.registerLazySingleton(() => dio);
   sl.registerLazySingleton(() => TmdbApiClient(dio));
 
-  // Data sources
+  // Data sources (only once ❌ no duplicates)
   sl.registerLazySingleton<MovieLocalDataSource>(
     () => MovieLocalDataSourceImpl(box),
   );
@@ -35,9 +35,9 @@ Future<void> init() async {
     () => MovieRemoteDataSourceImpl(sl<TmdbApiClient>()),
   );
 
-  // Repository 🔹 Must use implementation class
+  // Repository
   sl.registerLazySingleton<MovieRepository>(
-    () => MovieRepositoryImpl(localDataSource: sl(), remoteDataSource: sl()),
+    () => MovieRepositoryImpl(remote: sl(), local: sl()),
   );
 
   // Use cases

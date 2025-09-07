@@ -18,9 +18,8 @@ class HomePage extends StatelessWidget {
       create: (_) => HomeBloc(
         getTrending: di.sl<GetTrendingMovies>(),
         getNowPlaying: di.sl<GetNowPlayingMovies>(),
-        getTrendingMovies: di.sl<GetTrendingMovies>(),
-        getNowPlayingMovies: di.sl<GetNowPlayingMovies>(),
       )..add(LoadHome()),
+
       child: Scaffold(
         appBar: AppBar(
           title: Text('Movies'),
