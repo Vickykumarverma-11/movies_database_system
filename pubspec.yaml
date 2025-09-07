@@ -46,6 +46,7 @@ dependencies:
   share_plus: ^11.1.0
   get_it: ^8.2.0
   logger: ^2.6.1
+  cached_network_image: ^3.4.1
 
 dev_dependencies:
   flutter_test:
